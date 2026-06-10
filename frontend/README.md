@@ -1,75 +1,26 @@
-# Nuxt Minimal Starter
+# Reblum Frontend Skeleton
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Мінімальний Nuxt 4 frontend для тестового завдання на позицію Senior Backend Developer.
+
+Цей скелет містить готову структуру сторінки Home з placeholder-компонентами. Ваше завдання — побудувати Laravel API та підключити цей фронтенд до нього.
 
 ## Setup
 
-Make sure to install dependencies:
-
-```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+cp .env.example .env
 npm run dev
 
-# pnpm
-pnpm dev
+Проєкт відкриється на http://localhost:3000
 
-# yarn
-yarn dev
+## Що вже зроблено
+- Структура сторінки Home (header, banner, gallery, CTA, promo)
+- Tailwind CSS
+- Конфігурація API_URL через .env
 
-# bun
-bun run dev
-```
+## Що потрібно зробити (ваше завдання)
+- Побудувати Laravel API (окремий проєкт)
+- Підключити fetch до API з SSR
+- Реалізувати auth (login/logout)
+- Відображати різний контент залежно від стану юзера
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Деталі - у документі з тестовим завданням.
