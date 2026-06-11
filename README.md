@@ -25,6 +25,14 @@ cp .env.example .env
 # fill in DB_DATABASE, DB_USERNAME, DB_PASSWORD, etc.
 ```
 
+Be sure to set the following environment variables in `.env`:
+
+```
+FRONTEND_URL=http://localhost:3000
+SESSION_DOMAIN=localhost
+SANCTUM_STATEFUL_DOMAINS=localhost:8080,localhost:3000
+```
+
 ### 2. Start Docker
 
 ```bash
@@ -66,6 +74,12 @@ cp .env.example .env
 npm install
 npm run dev        # http://localhost:3000
 ```
+Be sure to set the following environment variables in `.env`:
+
+```
+API_URL=http://localhost:3000
+```
+
 
 ---
 
