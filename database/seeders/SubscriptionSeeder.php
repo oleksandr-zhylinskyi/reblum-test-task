@@ -20,13 +20,14 @@ class SubscriptionSeeder extends Seeder
         ];
 
         foreach ($cases as $case) {
-            $user = User::factory()->create([
-                'email' => "{$case['label']}@example.com",
-            ]);
+            $user = User::query()->firstOrCreate(
+                ['email' => "{$case['label']}@example.com"],
+                User::factory()->make()->toArray(),
+            );
 
-            ($case['factory']())
-                ->for($user)
-                ->create();
+            if (!$user->subscription()->exists()) {
+                ($case['factory']())->for($user)->create();
+            }
         }
     }
 }
