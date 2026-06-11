@@ -22,9 +22,6 @@ const hidePromo = () => {
   setTimeout(() => {
     isVisible.value = false
   }, promoDuration)
-
-  // TODO: Implement logic to save this state (e.g., in cookies or localStorage)
-  // so the promo doesn't reappear on page reload for the current user session.
 }
 </script>
 
