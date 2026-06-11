@@ -25,6 +25,12 @@ class Subscription extends Model
 {
     use HasFactory;
 
+    const string PLAN_TRIAL = 'trial';
+
+    const string PLAN_MONTHLY = 'monthly';
+
+    const string PLAN_ANNUAL = 'annual';
+
     protected $fillable = [
         'user_id',
         'plan',

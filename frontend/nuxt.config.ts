@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2026-06-10",
   devtools: { enabled: true },
+  srcDir: '.',
   modules: ["@nuxtjs/tailwindcss", "nuxt-auth-sanctum"],
   runtimeConfig: {
     public: {
@@ -19,7 +20,7 @@ export default defineNuxtConfig({
       csrf: '/sanctum/csrf-cookie',
       login: '/login',
       logout: '/logout',
-      user: '/api/user',
+      user: '/api/users/me',
     },
     redirect: {
       onLogin: '/',

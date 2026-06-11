@@ -1,21 +1,20 @@
-<script setup>
-import { ref, onMounted } from 'vue'
+<script setup lang="ts">
+const { state } = useSubscriptionState();
 
-// TODO: Initial visibility should ideally be determined by SSR data from Laravel API
-const isVisible = ref(true)
+const isVisible = ref(false)
 
 const isAnimated = ref(false)
 
 const promoDuration = 700
 
-onMounted(() => {
-  // TODO: If the candidate implements localStorage/cookie checks, they should ensure
-  // the timer runs ONLY if the user hasn't closed the promo before.
+const showableStates = ['trial', 'monthly', 'expired']
 
-  setTimeout(() => {
-    isAnimated.value = true
-  }, 5000)
-});
+watch(state, (val) => {
+  if (showableStates.includes(val)) {
+    isVisible.value = true
+    setTimeout(() => { isAnimated.value = true }, 5000)
+  }
+}, { immediate: true })
 
 const hidePromo = () => {
   isAnimated.value = false
@@ -24,7 +23,7 @@ const hidePromo = () => {
     isVisible.value = false
   }, promoDuration)
 
-  // TODO: Implement logic to save this state (e.g., in cookies or localStorage) 
+  // TODO: Implement logic to save this state (e.g., in cookies or localStorage)
   // so the promo doesn't reappear on page reload for the current user session.
 }
 </script>
@@ -43,8 +42,9 @@ const hidePromo = () => {
           Promo
         </span>
         <p class="text-sm font-medium text-center sm:text-left">
-          Special Assessment Offer: Successfully connect your Laravel backend to unlock the full potential of this
-          skeleton.
+          <template v-if="state === 'trial'">Save 30% with Annual plan</template>
+          <template v-else-if="state === 'monthly'">Switch to Annual and save $60/year</template>
+          <template v-else-if="state === 'expired'">Come back and get 20% off</template>
         </p>
       </div>
 
