@@ -2,6 +2,9 @@
 
 Full-stack application built with **Laravel** (API) and **Nuxt 4** (frontend).
 
+I decided to use Laravel Sacntum for authentication and session management because it's a well-known and battle-tested package.
+
+If there was a need for a mobile app, I would have considered token-based auth.
 ## Stack
 
 | Layer | Technology                          |
